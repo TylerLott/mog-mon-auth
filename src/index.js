@@ -26,6 +26,10 @@ const Room = mongoose.model(
     name: { type: String },
     host: { type: String },
     player: { type: String },
+    peerHost: { type: String },
+    peerPath: { type: String },
+    peerPort: { type: String },
+    socketURL: { type: String },
   },
   "codes"
 )
@@ -47,9 +51,13 @@ app.get("/api/auth", (req, res) => {
         if (data) {
           res.send(
             JSON.stringify({
-              roomcode: req.query.roomcode,
+              roomcode: data.name,
               userId: req.query.userId,
               type: "player",
+              peerHost: data.peerHost,
+              peerPath: data.peerPath,
+              peerPort: data.peerPort,
+              socketURL: data.socketURL,
             })
           )
         } else {
@@ -58,9 +66,13 @@ app.get("/api/auth", (req, res) => {
               if (data) {
                 res.send(
                   JSON.stringify({
-                    roomcode: req.query.roomcode,
+                    roomcode: data.name,
                     userId: req.query.userId,
                     type: "host",
+                    peerHost: data.peerHost,
+                    peerPath: data.peerPath,
+                    peerPort: data.peerPort,
+                    socketURL: data.socketURL,
                   })
                 )
               }
