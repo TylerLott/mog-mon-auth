@@ -8,7 +8,7 @@ let MONGO_PATH = "mongodb://172.31.91.101:27017/monday"
 let PEER_HOST = "ludwigmonday.gg"
 let PEER_PATH = "/api/gangbang"
 let PEER_PORT = 80
-let WEBSOCKET_PATH = "http://ludwigmonday.gg/api/stepbrother"
+let WEBSOCKET_PATH = "https://ludwigmonday.gg/api/stepbrother"
 let ENDPOINT = "/api/spermbank"
 
 if (process.env.NODE_ENV !== "production") {
