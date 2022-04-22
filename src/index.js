@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "production") {
   PORT = 5000
   MONGO_PATH = "mongodb://localhost:27017/codesdb"
   PEER_HOST = "localhost"
-  PEER_PATH = "/peer"
+  PEER_PATH = "/"
   PEER_PORT = 7000
   WEBSOCKET_PATH = "http://localhost:4000"
   ENDPOINT = "/api/auth"
