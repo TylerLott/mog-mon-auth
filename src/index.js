@@ -5,18 +5,12 @@ import mongoose from "mongoose"
 // CONSTANTS
 let PORT = 80
 let MONGO_PATH = "mongodb://172.31.91.101:27017/monday"
-let PEER_HOST = "ludwigmonday.gg"
-let PEER_PATH = "/api/gangbang"
-let PEER_PORT = 80
 let WEBSOCKET_PATH = "https://ludwigmonday.gg/"
 let ENDPOINT = "/api/spermbank"
 
 if (process.env.NODE_ENV !== "production") {
   PORT = 5000
   MONGO_PATH = "mongodb://localhost:27017/codesdb"
-  PEER_HOST = "localhost"
-  PEER_PATH = "/"
-  PEER_PORT = 7000
   WEBSOCKET_PATH = "http://localhost:4000"
   ENDPOINT = "/api/auth"
 }
@@ -62,9 +56,6 @@ app.get(ENDPOINT, (req, res) => {
               roomcode: data.name,
               userId: req.query.userId,
               type: "player",
-              peerHost: PEER_HOST,
-              peerPath: PEER_PATH,
-              peerPort: PEER_PORT,
               socketURL: WEBSOCKET_PATH,
             })
           )
@@ -77,9 +68,6 @@ app.get(ENDPOINT, (req, res) => {
                     roomcode: data.name,
                     userId: req.query.userId,
                     type: "host",
-                    peerHost: PEER_HOST,
-                    peerPath: PEER_PATH,
-                    peerPort: PEER_PORT,
                     socketURL: WEBSOCKET_PATH,
                   })
                 )
